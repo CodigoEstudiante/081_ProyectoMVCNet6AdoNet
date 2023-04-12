@@ -1,0 +1,36 @@
+﻿
+CREATE TABLE [EMPLEADO] (
+    [IdEmpleado] int primary key identity(1,1),
+    [Nombre] VARCHAR(255) NULL,
+    [Correo] VARCHAR(255) NULL,
+    [Direccion] VARCHAR(255) NULL,
+    [Telefono] VARCHAR(100) NULL
+);
+
+GO
+
+
+INSERT INTO [EMPLEADO] (Nombre,Correo,Direccion,Telefono)
+VALUES
+  ('Griffin Alvarez','quis.arcu.vel@google.com','369-4332 Ac Road','056 2416 0638'),
+  ('Alec Cabrera','non.luctus@hotmail.com','630-2826 Et St.','056 8117 4547'),
+  ('Bernard Ruiz','purus.duis@outlook.com','P.O. Box 662, 4315 Urna. Rd.','056 2945 0214'),
+  ('Kelsey Casado','molestie@outlook.com','P.O. Box 624, 2609 Neque Avenue','056 4244 5519'),
+  ('Fitzgerald Gimenez','a@hotmail.com','Ap #758-549 Tempor Av.','056 4647 4938'),
+  ('Rhonda Lorenzo','a.magna.lorem@outlook.com','Ap #574-2551 Pede. Ave','056 9228 9283'),
+  ('Roanna Castillo','in.consectetuer@outlook.com','Ap #885-7001 Dignissim. Av.','056 5917 4338'),
+  ('Alika Pastor','tellus.aenean@hotmail.com','Ap #740-4200 Neque St.','056 6523 6349'),
+  ('Jade Campos','sed.molestie@outlook.com','Ap #548-730 Enim. St.','056 2637 7131'),
+  ('Chaim Dominguez','eu.tempor.erat@google.com','Ap #484-9504 Quam Road','056 9254 3562');
+
+GO
+
+create procedure sp_ObtenerEmpleado
+as
+begin
+	select IdEmpleado,Nombre,Correo,Direccion,Telefono from EMPLEADO
+end
+
+GO
+
+exec sp_ObtenerEmpleado
